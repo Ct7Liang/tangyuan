@@ -9,6 +9,7 @@ import org.json.JSONObject;
  */
 
 public class JsonUtils {
+
     public static String getCode(String json) throws JSONException {
         return new JSONObject(json).getString("code");
     }

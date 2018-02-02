@@ -27,7 +27,7 @@ public class ToastUtils {
 
 
 
-    public static void setShowEnable(boolean show){
+    public static void setIsShowTestEnable(boolean show){
         isShowTest = show;
     }
 

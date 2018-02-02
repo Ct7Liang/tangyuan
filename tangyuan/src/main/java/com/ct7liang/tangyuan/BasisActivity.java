@@ -107,8 +107,8 @@ public abstract class BasisActivity extends AppCompatActivity implements View.On
             pd.dismiss();
         }
     }
-    public String getProgressContent(){
-        return progressContent[(int) (Math.random()*3)];
+    private String getProgressContent(){
+        return progressContent[(int) (Math.random()*progressContent.length)];
     }
     private String[] progressContent = { "正在玩儿命连接网络...", "疯狂请求数据中...", "请稍后"};
 
