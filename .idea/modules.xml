@@ -4,7 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Developer.iml" filepath="$PROJECT_DIR$/Developer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tangyuan.iml" filepath="$PROJECT_DIR$/tangyuan.iml" />
       <module fileurl="file://$PROJECT_DIR$/tangyuan/tangyuan.iml" filepath="$PROJECT_DIR$/tangyuan/tangyuan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tangyuan/tangyuan-tangyuan.iml" filepath="$PROJECT_DIR$/tangyuan/tangyuan-tangyuan.iml" />
     </modules>
   </component>
 </project>
