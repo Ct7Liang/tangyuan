@@ -100,7 +100,7 @@ public class GlideHelper {
         }
         return circleTransform;
     }
-    public class GlideCircleTransform extends BitmapTransformation {
+    public static class GlideCircleTransform extends BitmapTransformation {
         public GlideCircleTransform(Context context) {
             super(context);
         }
@@ -165,7 +165,7 @@ public class GlideHelper {
         }
         return transform;
     }
-    public class GlideRoundTransform extends BitmapTransformation {
+    public static class GlideRoundTransform extends BitmapTransformation {
         private float radius = 0f;
         public GlideRoundTransform(Context context) {
             this(context, 4);
@@ -229,7 +229,7 @@ public class GlideHelper {
     /**
      * 配置设置图片到其他控件
      */
-    public class GlideOtherTarget extends SimpleTarget<Bitmap> {
+    public static class GlideOtherTarget extends SimpleTarget<Bitmap> {
         private WeakReference<View> mView;
         private Drawable mDrawable;
         public GlideOtherTarget(View view, int width, int height){
