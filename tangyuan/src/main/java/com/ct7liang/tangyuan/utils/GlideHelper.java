@@ -226,6 +226,7 @@ public class GlideHelper {
             .centerCrop() //指定图片缩放类型为centerCrop, 裁剪为指定大小, 可能图片显示不完整
             .into(new GlideOtherTarget(view, width, height));
     }
+
     /**
      * 配置设置图片到其他控件
      */
