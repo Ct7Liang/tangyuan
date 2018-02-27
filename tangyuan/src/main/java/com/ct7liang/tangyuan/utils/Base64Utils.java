@@ -1,4 +1,4 @@
-package com.ct7liang.developer.utils;
+package com.ct7liang.tangyuan.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -26,7 +26,7 @@ public class Base64Utils {
      * @param file File
      * @return base64字符串
      */
-    public static String fileToBase64(File file) {
+    public static String FileToBase64(File file) {
         String base64 = null;
         InputStream in = null;
         try {
@@ -54,7 +54,7 @@ public class Base64Utils {
      * @param file 输出文件
      * @return File
      */
-    public static File base64ToFile(String base64, File file) {
+    public static File Base64ToFile(String base64, File file) {
         FileOutputStream out = null;
         try {
             // 解码，然后将字节转换为文件
@@ -90,7 +90,7 @@ public class Base64Utils {
      * @param bitmap Bitmap
      * @return base64字符串
      */
-    public static String bitmapToBase64(Bitmap bitmap) {
+    public static String BitmapToBase64(Bitmap bitmap) {
         String result = null;
         ByteArrayOutputStream baos = null;
         try {
@@ -122,7 +122,7 @@ public class Base64Utils {
      * @param base64Data base64字符串
      * @return Bitmap
      */
-    public static Bitmap base64ToBitmap(String base64Data) {
+    public static Bitmap Base64ToBitmap(String base64Data) {
         byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
