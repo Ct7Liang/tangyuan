@@ -31,6 +31,9 @@ public abstract class BasisActivity extends AppCompatActivity implements View.On
         //去掉系统自带的ActionBar
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
+        getOnCreateParams(savedInstanceState);
+
         mAct = this;
         exitReceiver = new AppExitReceiver();
         setContentView(setLayout());
@@ -43,6 +46,10 @@ public abstract class BasisActivity extends AppCompatActivity implements View.On
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constant.RECEIVER_FILTER);
         registerReceiver(exitReceiver, filter);
+    }
+
+    private void getOnCreateParams(Bundle savedInstanceState) {
+
     }
 
     @Override
