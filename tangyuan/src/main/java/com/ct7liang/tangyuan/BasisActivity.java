@@ -48,7 +48,7 @@ public abstract class BasisActivity extends AppCompatActivity implements View.On
         registerReceiver(exitReceiver, filter);
     }
 
-    private void getOnCreateParams(Bundle savedInstanceState) {
+    public void getOnCreateParams(Bundle savedInstanceState) {
 
     }
 
