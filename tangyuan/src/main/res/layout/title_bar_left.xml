@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/title_back_ground"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:orientation="horizontal"
+        android:background="#a1a1a1">
+
+        <ImageView
+            android:id="@+id/left_image"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:src="@drawable/title_back"
+            android:padding="16dp"/>
+
+        <TextView
+            android:id="@+id/left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="?android:attr/actionBarSize"
+            android:text="这是偏左的标题"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
