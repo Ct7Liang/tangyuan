@@ -19,16 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StatusBarActivity" />
-        <activity android:name=".StatusBar01Activity" />
-        <activity
-            android:name=".StatusBar02Activity"
-            android:label="@string/title_activity_status_bar02"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
