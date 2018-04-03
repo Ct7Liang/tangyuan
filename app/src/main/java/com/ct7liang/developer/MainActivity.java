@@ -1,8 +1,8 @@
 package com.ct7liang.developer;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
-import com.ct7liang.tangyuan.utils.ToastUtils;
 
 public class MainActivity extends BaseActivity {
 
@@ -45,7 +45,8 @@ public class MainActivity extends BaseActivity {
                 exitApp();
                 break;
             case R.id.right:
-                ToastUtils.showStatic(mAct, "Hello World!");
+//                ToastUtils.showStatic(mAct, "Hello World!");
+                startActivity(new Intent(this, StatusBarActivity.class));
                 break;
         }
     }
