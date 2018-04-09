@@ -3,6 +3,8 @@ package com.ct7liang.developer;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ct7liang.tangyuan.utils.ScreenInfoUtil;
+
 public class MainActivity extends BaseActivity {
 
     @Override
@@ -19,6 +21,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void setStatusBar() {
         //用于实现沉浸式状态栏
+        findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
     }
 
     @Override

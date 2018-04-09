@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,7 +23,7 @@ import com.ct7liang.tangyuan.utils.ToastUtils;
  *  initView(); 初始化View
  *  initFinish(); 初始化完成
  */
-public abstract class BasisActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BasisActivity extends FragmentActivity implements View.OnClickListener {
 
     public Activity mAct;
     public AppExitReceiver exitReceiver;
@@ -31,7 +31,7 @@ public abstract class BasisActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //去掉系统自带的ActionBar
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
         getOnCreateParams(savedInstanceState);
