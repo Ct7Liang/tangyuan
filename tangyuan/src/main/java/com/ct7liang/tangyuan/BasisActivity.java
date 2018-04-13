@@ -40,15 +40,7 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         exitReceiver = new AppExitReceiver();
         setContentView(setLayout());
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            setStatusBar();
-//            toolbar.setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
-//            findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
-//            findViewById(R.id.title_back_ground).setBackgroundColor(Color.parseColor("#00000000"));
-        }
-
+//        initStatusBar();
         findView();
         initData();
         initView();
@@ -57,6 +49,17 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constant.RECEIVER_FILTER);
         registerReceiver(exitReceiver, filter);
+    }
+
+    public void initStatusBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            setStatusBar();
+//            toolbar.setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
+//            findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
+//            findViewById(R.id.title_back_ground).setBackgroundColor(Color.parseColor("#00000000"));
+        }
     }
 
     public void getOnCreateParams(Bundle savedInstanceState) {
@@ -74,7 +77,9 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
      */
     public abstract int setLayout();
 
-    protected void setStatusBar(){}
+    protected void setStatusBar(){
+
+    }
 
     /**
      * 查找控件
