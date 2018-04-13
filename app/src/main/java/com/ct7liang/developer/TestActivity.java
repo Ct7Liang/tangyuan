@@ -1,7 +1,9 @@
 package com.ct7liang.developer;
 
-import android.app.ProgressDialog;
 import android.view.View;
+
+import com.ct7liang.developer.utils.MyProgressDialog;
+import com.ct7liang.tangyuan.utils.ToastUtils;
 
 public class TestActivity extends BaseActivity {
 
@@ -49,11 +51,21 @@ public class TestActivity extends BaseActivity {
     }
 
     public void create(){
-//        ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setCanceledOnTouchOutside(false);
-//        progressDialog.show();
+        MyProgressDialog progressDialog = new MyProgressDialog(this);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setBackListener(new MyProgressDialog.OnBackPressed() {
+            @Override
+            public void onBackPressed() {
+                ToastUtils.showStatic(mAct, "我是progressDialog的onBackPressed()方法");
+            }
+        });
+        progressDialog.show();
 
-        ProgressDialog.show(this, null, "请稍后...", true, false);
+//        ProgressDialog.show(this, null, "请稍后...");
     }
 
+    @Override
+    public void onBackPressed() {
+        ToastUtils.showStatic(this, "Hello World!");
+    }
 }
