@@ -1,5 +1,6 @@
 package com.ct7liang.developer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -42,6 +43,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initFinish() {
         //初始化完成
+        startActivity(new Intent(this, TestActivity.class));
     }
 
     @Override

@@ -12,7 +12,10 @@ public class SpUtils {
     private static SharedPreferences sp;
 
     public static void init(Context context){
-        sp = context.getSharedPreferences("this_app_configs", Context.MODE_PRIVATE);
+        sp = context.getSharedPreferences("app_configs", Context.MODE_PRIVATE);
+    }
+    public static void init(Context context, String spName){
+        sp = context.getSharedPreferences(spName, Context.MODE_PRIVATE);
     }
 
     private static SpUtils mSpUtils;

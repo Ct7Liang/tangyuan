@@ -1,5 +1,7 @@
 package com.ct7liang.tangyuan.utils;
 
+import android.support.annotation.NonNull;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,6 +25,7 @@ public class FileUtils {
         }
     }
 
+    @NonNull
     public static String read(File file){
         int len=0;
         StringBuffer str = new StringBuffer("");

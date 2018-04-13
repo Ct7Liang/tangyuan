@@ -31,7 +31,7 @@ public class ToastUtils {
         isShowTest = show;
     }
 
-    public static void ShowTest(Context context, String msg){
+    public static void showTest(Context context, String msg){
         if (isShowTest){
             if (mToast == null) {
                 mToast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
