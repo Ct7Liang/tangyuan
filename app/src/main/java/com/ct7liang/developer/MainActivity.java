@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ct7liang.developer.test_activity.LoadingDialogActivity;
 import com.ct7liang.tangyuan.utils.ScreenInfoUtil;
 
 public class MainActivity extends BaseActivity {
@@ -27,6 +28,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void findView() {
+        initStatusBar();
         //查找控件
     }
 
@@ -43,7 +45,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initFinish() {
         //初始化完成
-        startActivity(new Intent(this, TestActivity.class));
+        startActivity(new Intent(this, LoadingDialogActivity.class));
     }
 
     @Override
