@@ -30,6 +30,4 @@ public class ZddDialog extends Dialog {
     public interface OnBackPressed{
         void onBackPressed();
     }
-
-
 }

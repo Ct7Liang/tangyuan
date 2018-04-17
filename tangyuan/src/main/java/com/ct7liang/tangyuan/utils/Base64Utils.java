@@ -2,8 +2,8 @@ package com.ct7liang.tangyuan.utils;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.annotation.NonNull;
 import android.util.Base64;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -18,6 +18,10 @@ import java.io.InputStream;
  *   需要权限:
  *  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
  *  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+ *
+ *      file <<--->> Base64
+ *      bitmap <<--->> Base64
+ *      String <<--->> Base64
  */
 public class Base64Utils {
 
@@ -26,7 +30,7 @@ public class Base64Utils {
      * @param file File
      * @return base64字符串
      */
-    public static String FileToBase64(File file) {
+    public static String FileToBase64(@NonNull File file) {
         String base64 = null;
         InputStream in = null;
         try {
@@ -54,7 +58,7 @@ public class Base64Utils {
      * @param file 输出文件
      * @return File
      */
-    public static File Base64ToFile(String base64, File file) {
+    public static File Base64ToFile(@NonNull String base64, @NonNull File file) {
         FileOutputStream out = null;
         try {
             // 解码，然后将字节转换为文件
@@ -90,7 +94,7 @@ public class Base64Utils {
      * @param bitmap Bitmap
      * @return base64字符串
      */
-    public static String BitmapToBase64(Bitmap bitmap) {
+    public static String BitmapToBase64(@NonNull Bitmap bitmap) {
         String result = null;
         ByteArrayOutputStream baos = null;
         try {
@@ -122,7 +126,7 @@ public class Base64Utils {
      * @param base64Data base64字符串
      * @return Bitmap
      */
-    public static Bitmap Base64ToBitmap(String base64Data) {
+    public static Bitmap Base64ToBitmap(@NonNull String base64Data) {
         byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
@@ -131,7 +135,7 @@ public class Base64Utils {
      * 字符串进行Base64编码
      * @param str
      */
-    public static String StringToBase64(String str){
+    public static String StringToBase64(@NonNull String str){
         String encodedString = Base64.encodeToString(str.getBytes(), Base64.DEFAULT);
         return encodedString;
     }
@@ -141,7 +145,7 @@ public class Base64Utils {
      * @param encodedString
      * @return
      */
-    public static String Base64ToString(String encodedString){
+    public static String Base64ToString(@NonNull String encodedString){
         String decodedString =new String(Base64.decode(encodedString,Base64.DEFAULT));
         return decodedString;
     }

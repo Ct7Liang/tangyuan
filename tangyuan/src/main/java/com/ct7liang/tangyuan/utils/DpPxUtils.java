@@ -4,7 +4,7 @@ import android.content.Context;
 
 /**
  * Created by Administrator on 2017/6/13.
- *
+ * dp,px转换工具类
  */
 public class DpPxUtils {
 

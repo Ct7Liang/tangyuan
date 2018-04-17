@@ -37,20 +37,25 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         getOnCreateParams(savedInstanceState);
 
         mAct = this;
-        exitReceiver = new AppExitReceiver();
+
         setContentView(setLayout());
 
-//        initStatusBar();
         findView();
         initData();
         initView();
         initFinish();
 
+        // Activity初始化完成,注册广播, 以便于在广播中对Activity进行销毁, 注意要在onDestroy()中解除注册
+        exitReceiver = new AppExitReceiver();
         IntentFilter filter = new IntentFilter();
         filter.addAction(Constant.RECEIVER_FILTER);
         registerReceiver(exitReceiver, filter);
     }
 
+    /**
+     * 该方法设置了状态栏为透明状态栏, 使用时在findView()方法中调用即可
+     * 根据实际使用情景,需要重写setStatusBar()方法去设置状态栏
+     */
     public void initStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
@@ -62,9 +67,11 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         }
     }
 
-    public void getOnCreateParams(Bundle savedInstanceState) {
-
-    }
+    /**
+     * 在onCreate()方法中首先被调用 获得onCreate方法中的Bundle参数
+     * @param savedInstanceState onCreate方法中的Bundle参数
+     */
+    public void getOnCreateParams(Bundle savedInstanceState) {}
 
     @Override
     protected void onDestroy() {
@@ -77,9 +84,10 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
      */
     public abstract int setLayout();
 
-    protected void setStatusBar(){
-
-    }
+    /**
+     * 再调用了initStatusBar方法后,根据实际使用情景,在该方法中对状态栏及其他控件做相应的调整,已达到沉浸式状态栏的效果
+     */
+    protected void setStatusBar(){}
 
     /**
      * 查找控件
