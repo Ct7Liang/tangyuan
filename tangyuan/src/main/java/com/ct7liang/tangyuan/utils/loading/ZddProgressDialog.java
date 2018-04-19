@@ -20,7 +20,9 @@ public class ZddProgressDialog extends ProgressDialog {
 
     @Override
     public void onBackPressed() {
-        onBackPressed.onBackPressed();
+        if (onBackPressed!=null){
+            onBackPressed.onBackPressed();
+        }
         super.onBackPressed();
     }
 
@@ -31,6 +33,5 @@ public class ZddProgressDialog extends ProgressDialog {
     public interface OnBackPressed{
         void onBackPressed();
     }
-
 
 }

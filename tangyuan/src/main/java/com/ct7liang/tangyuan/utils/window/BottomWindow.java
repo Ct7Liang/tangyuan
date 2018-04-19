@@ -1,4 +1,4 @@
-package com.ct7liang.tangyuan.utils;
+package com.ct7liang.tangyuan.utils.window;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -26,6 +26,7 @@ public class BottomWindow {
 
     public void show(Activity act, int layoutResource, int height, ViewSetting viewSetting){
         Dialog mDetailWindow = new Dialog(act, R.style.dialog_bottom_full);
+        mDetailWindow.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDetailWindow.setCanceledOnTouchOutside(true);
         mDetailWindow.setCancelable(true);
         Window window = mDetailWindow.getWindow();

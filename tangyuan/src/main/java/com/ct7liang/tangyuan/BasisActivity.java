@@ -1,7 +1,6 @@
 package com.ct7liang.tangyuan;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
@@ -127,20 +126,20 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         }
     }
 
-    private ProgressDialog pd;
-    public void showProgressDialog(){
-        pd = new ProgressDialog(this);
-        pd.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        pd = ProgressDialog.show(this, "", getProgressContent(), true, false);
-    }
-    public void cancelProgress(){
-        if (pd!=null){
-            pd.dismiss();
-        }
-    }
-    private String getProgressContent(){
-        return progressContent[(int) (Math.random()*progressContent.length)];
-    }
-    private String[] progressContent = { "正在玩儿命连接网络...", "疯狂请求数据中...", "请稍后"};
+//    private ProgressDialog pd;
+//    public void showProgressDialog(){
+//        pd = new ProgressDialog(this);
+//        pd.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        pd = ProgressDialog.show(this, "", getProgressContent(), true, false);
+//    }
+//    public void cancelProgress(){
+//        if (pd!=null){
+//            pd.dismiss();
+//        }
+//    }
+//    private String getProgressContent(){
+//        return progressContent[(int) (Math.random()*progressContent.length)];
+//    }
+//    private String[] progressContent = { "正在玩儿命连接网络...", "疯狂请求数据中...", "请稍后"};
 
 }

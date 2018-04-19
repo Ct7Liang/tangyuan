@@ -19,8 +19,10 @@ public class ZddDialog extends Dialog {
 
     @Override
     public void onBackPressed() {
-        onBackPressed.onBackPressed();
         super.onBackPressed();
+        if (onBackPressed!=null){
+            onBackPressed.onBackPressed();
+        }
     }
 
     public void setBackListener(OnBackPressed onBackPressed){
