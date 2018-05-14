@@ -12,6 +12,6 @@ allprojects {
 ***app* *build.gradle***
 ```
 dependencies {
-    compile 'com.github.Ct7Liang:tangyuan:1.0.9'
+    compile 'com.github.Ct7Liang:tangyuan:1.1.4'
 }
 ```
