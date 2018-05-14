@@ -1,10 +1,8 @@
 package com.ct7liang.developer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ct7liang.developer.test_activity.LoadingDialogActivity;
 import com.ct7liang.tangyuan.utils.ScreenInfoUtil;
 
 public class MainActivity extends BaseActivity {
@@ -22,6 +20,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setStatusBar() {
+        setOrientation(true);
         //用于实现沉浸式状态栏
         findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
     }
@@ -45,7 +44,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initFinish() {
         //初始化完成
-        startActivity(new Intent(this, LoadingDialogActivity.class));
+//        startActivity(new Intent(this, LoadingDialogActivity.class));
     }
 
     @Override
@@ -57,18 +56,6 @@ public class MainActivity extends BaseActivity {
     public void exitApp() {
         super.exitApp();
         //退出应用提示 销毁所有的Activity
-    }
-
-    @Override
-    public void showProgressDialog() {
-        //显示加载框
-        super.showProgressDialog();
-    }
-
-    @Override
-    public void cancelProgress() {
-        //关闭加载框
-        super.cancelProgress();
     }
 
 }

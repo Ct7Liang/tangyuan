@@ -3,6 +3,8 @@ package com.ct7liang.tangyuan;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -123,6 +125,29 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         }else {
             ToastUtils.showStatic(mAct, "再按一次退出");
             lastTime = currentTime;
+        }
+    }
+
+    /**
+     * 设置当前窗体为全屏显示
+     */
+    public void setFullScreen(){
+        int flag= WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        //设置当前窗体为全屏显示
+        getWindow().setFlags(flag, flag);
+    }
+
+    /**
+     * 设置屏幕方向
+     * @param b true为竖直方向 false为横向方向
+     */
+    public void setOrientation(boolean b) {
+        if (b){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }else{
+            if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }
         }
     }
 

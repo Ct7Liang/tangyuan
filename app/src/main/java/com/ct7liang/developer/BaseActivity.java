@@ -10,4 +10,5 @@ public abstract class BaseActivity extends BasisActivity{
 
     //添加其他的公共代码
 
+
 }
