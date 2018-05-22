@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/title_back_ground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="#3F51B5">
+
+        <ImageView
+            android:id="@+id/left_image"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"/>
+
+        <TextView
+            android:id="@+id/center_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="?android:attr/actionBarSize"/>
+
+        <RelativeLayout
+            android:id="@+id/right"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize">
+            <TextView
+                android:layout_centerInParent="true"
+                android:id="@+id/right_text"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"/>
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/right_image"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

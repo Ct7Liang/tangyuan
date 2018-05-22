@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.ct7liang.developer.test_activity.TitlebarTestActivity">
+
+    <com.ct7liang.tangyuan.view.TitleBarView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_img_src="@mipmap/ic_launcher_round"
+        app:left_img_padding="12dp"
+        app:title="自定义"
+        app:title_text_color="#DD4E40"
+        app:title_text_size="18sp"
+        app:title_gravity="center"
+        app:right_text="列表"
+        app:right_text_color="#DD4E40"
+        app:right_text_size="14sp"
+        app:title_bar_bg="@color/colorPrimary">
+    </com.ct7liang.tangyuan.view.TitleBarView>
+
+</LinearLayout>

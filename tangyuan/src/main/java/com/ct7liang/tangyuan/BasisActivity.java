@@ -139,10 +139,10 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
 
     /**
      * 设置屏幕方向
-     * @param b true为竖直方向 false为横向方向
+     * @param isVertical true为竖直方向 false为横向方向
      */
-    public void setOrientation(boolean b) {
-        if (b){
+    public void setOrientation(boolean isVertical) {
+        if (isVertical){
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }else{
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
