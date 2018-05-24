@@ -35,15 +35,18 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
-        getOnCreateParams(savedInstanceState);
-
         mAct = this;
+
+        getOnCreateParams(savedInstanceState);
 
         setContentView(setLayout());
 
         findView();
+
         initData();
+
         initView();
+
         initFinish();
 
         // Activity初始化完成,注册广播, 以便于在广播中对Activity进行销毁, 注意要在onDestroy()中解除注册
@@ -54,7 +57,7 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
     }
 
     /**
-     * 该方法设置了状态栏为透明状态栏, 使用时在findView()方法中调用即可
+     * 该方法设置了状态栏为透明状态栏, 使用时在initView()方法中调用即可
      * 根据实际使用情景,需要重写setStatusBar()方法去设置状态栏
      */
     public void initStatusBar() {
