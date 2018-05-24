@@ -6,6 +6,7 @@ import com.ct7liang.tangyuan.AppFolder;
 import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.SpUtils;
 import com.ct7liang.tangyuan.utils.ToastUtils;
+import com.ct7liang.tangyuan.utils.crash.CrashUtils;
 
 /**
  * Created by Administrator on 2018-02-02.
@@ -26,6 +27,8 @@ public class BaseApp extends Application {
         LogUtils.setShowLocationEnable(false); //打印日志的时候是否打印位置信息 默认为false
 
         AppFolder.createAppFolder("App文件夹名称");
+
+        CrashUtils.init();
     }
 
 }

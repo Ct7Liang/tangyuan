@@ -44,6 +44,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
     private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");  
 
     private File fileFolder;
+    private boolean isShowToast = true;
+    private String content = "";
 
     /** 保证只有一个CrashHandler实例 */
     private CrashHandler() {
@@ -59,13 +61,15 @@ public class CrashHandler implements UncaughtExceptionHandler {
      * 初始化
      * @param context 
      */  
-    public void init(Context context, @NonNull File folder) {
+    public void init(Context context, @NonNull File folder, boolean isShowToast, @NonNull String content) {
         mContext = context;
         if (folder==null){
             throw new NullPointerException("CrashHandler初始化文件夹不能为空");
         }else{
             fileFolder = folder;
         }
+        this.isShowToast = isShowToast;
+        this.content =  content;
         //获取系统默认的UncaughtException处理器  
         mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();  
         //设置该CrashHandler为程序的默认处理器  
@@ -106,8 +110,10 @@ public class CrashHandler implements UncaughtExceptionHandler {
             @Override  
             public void run() {  
                 Looper.prepare();
-                Toast.makeText(mContext, "很抱歉,程序出现异常,\n请尽快联系管理员解决", Toast.LENGTH_LONG).show();
-                Looper.loop();  
+                if (isShowToast){
+                    Toast.makeText(mContext, content, Toast.LENGTH_LONG).show();
+                }
+                Looper.loop();
             }  
         }.start();  
         //收集设备参数信息   
