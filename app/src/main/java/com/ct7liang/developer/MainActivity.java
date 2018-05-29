@@ -1,11 +1,11 @@
 package com.ct7liang.developer;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ct7liang.developer.test_activity.TitlebarTestActivity;
-import com.ct7liang.tangyuan.utils.ScreenInfoUtil;
+import com.ct7liang.tangyuan.utils.DPSTransform;
+import com.ct7liang.tangyuan.utils.LogUtils;
+import com.ct7liang.tangyuan.utils.ScreenUtil;
 
 public class MainActivity extends BaseActivity {
 
@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
     protected void setStatusBar() {
         setOrientation(true);
         //用于实现沉浸式状态栏
-        findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
+        findViewById(R.id.title_back_ground).setPadding(0, ScreenUtil.getUtils().getStatusHeight(this), 0, 0);
     }
 
     @Override
@@ -47,7 +47,9 @@ public class MainActivity extends BaseActivity {
     public void initFinish() {
         //初始化完成
 //        startActivity(new Intent(this, LoadingDialogActivity.class));
-        startActivity(new Intent(this, TitlebarTestActivity.class));
+//        startActivity(new Intent(this, TitlebarTestActivity.class));
+        LogUtils.write("wqewrewretretrtretyret");
+        LogUtils.write(DPSTransform.dp2Px(getApplicationContext(), 100)+"");
     }
 
     @Override

@@ -15,9 +15,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.ct7liang.tangyuan.R;
-import com.ct7liang.tangyuan.utils.DpPxUtils;
-import com.ct7liang.tangyuan.utils.ScreenInfoUtil;
+import com.ct7liang.tangyuan.utils.DPSTransform;
+import com.ct7liang.tangyuan.utils.ScreenUtil;
 
 /**
  * Created by Administrator on 2018-05-22.
@@ -35,9 +36,6 @@ public class TitleBarView extends LinearLayout {
     private ImageView img_right;
     private View backGround;
 
-    public static String layout_center;
-    public static String layout_start;
-
     public TitleBarView(Context context) {
         super(context);
     }
@@ -45,22 +43,22 @@ public class TitleBarView extends LinearLayout {
     public TitleBarView(final Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
+        //初始化布局
+        LayoutInflater.from(context).inflate(R.layout.title_bar, this);
+
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleBarView);
         int left_img_src = typedArray.getResourceId(R.styleable.TitleBarView_left_img_src, R.drawable.title_back);
-        int left_img_padding = (int) typedArray.getDimension(R.styleable.TitleBarView_left_img_padding, DpPxUtils.sp2px(context, 12));
+        int left_img_padding = (int) typedArray.getDimension(R.styleable.TitleBarView_left_img_padding, DPSTransform.sp2Px(context, 12));
         String title = typedArray.getString(R.styleable.TitleBarView_title);
-        float title_size = typedArray.getDimension(R.styleable.TitleBarView_title_text_size, DpPxUtils.sp2px(context, 17));
+        float title_size = typedArray.getDimension(R.styleable.TitleBarView_title_text_size, DPSTransform.sp2Px(context, 17));
         int title_color = typedArray.getColor(R.styleable.TitleBarView_title_text_color, Color.WHITE);
         int gravity = typedArray.getInt(R.styleable.TitleBarView_title_gravity, 0);
         int right_img_src = typedArray.getResourceId(R.styleable.TitleBarView_right_img_src, 0);
-        int right_img_padding = (int) typedArray.getDimension(R.styleable.TitleBarView_right_img_padding, DpPxUtils.sp2px(context, 12));
+        int right_img_padding = (int) typedArray.getDimension(R.styleable.TitleBarView_right_img_padding, DPSTransform.sp2Px(context, 12));
         String right_text = typedArray.getString(R.styleable.TitleBarView_right_text);
-        float right_text_size = typedArray.getDimension(R.styleable.TitleBarView_right_text_size, DpPxUtils.sp2px(context, 15));
+        float right_text_size = typedArray.getDimension(R.styleable.TitleBarView_right_text_size, DPSTransform.sp2Px(context, 15));
         int right_text_color = typedArray.getColor(R.styleable.TitleBarView_right_text_color, Color.WHITE);
         int bgcolor = typedArray.getColor(R.styleable.TitleBarView_title_bar_bg, Color.BLUE);
-
-        //初始化布局
-        LayoutInflater.from(context).inflate(R.layout.title_bar, this);
 
         img_left = (ImageView) findViewById(R.id.left_image);
         img_left.setImageResource(left_img_src);
@@ -215,7 +213,7 @@ public class TitleBarView extends LinearLayout {
      * 设置标题栏状态栏适应
      * @param context
      */
-    public void setStatusbar(Context context){
-        backGround.setPadding(0, ScreenInfoUtil.getStatusHeight(context), 0 , 0);
+    public void setStatusBar(Context context){
+        backGround.setPadding(0, ScreenUtil.getUtils().getStatusHeight(getContext()), 0 , 0);
     }
 }

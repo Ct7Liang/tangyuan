@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.ct7liang.developer.BaseActivity;
 import com.ct7liang.developer.R;
-import com.ct7liang.tangyuan.utils.DpPxUtils;
+import com.ct7liang.tangyuan.utils.DPSTransform;
 import com.ct7liang.tangyuan.utils.ToastUtils;
 import com.ct7liang.tangyuan.utils.loading.LoadingDialog;
 import com.ct7liang.tangyuan.utils.loading.ZddDialog;
@@ -64,7 +64,7 @@ public class LoadingDialogActivity extends BaseActivity {
                 },null);
                 break;
             case R.id.btn3:
-                LoadingDialog.show(this, false, R.layout.progress_bar, false, DpPxUtils.Dp2Px(this, 100), DpPxUtils.Dp2Px(this, 100), new ZddDialog.OnBackPressed() {
+                LoadingDialog.show(this, false, R.layout.progress_bar, false, DPSTransform.dp2Px(this, 100), DPSTransform.dp2Px(this, 100), new ZddDialog.OnBackPressed() {
                     @Override
                     public void onBackPressed() {
                         ToastUtils.showStatic(mAct, "我是ProgressDialog的onBackPress方法");
@@ -72,7 +72,7 @@ public class LoadingDialogActivity extends BaseActivity {
                 },null);
                 break;
             case R.id.btn4:
-                LoadingDialog.show(this, true, R.layout.progress_bar, false, DpPxUtils.Dp2Px(this, 100), DpPxUtils.Dp2Px(this, 100), new ZddDialog.OnBackPressed() {
+                LoadingDialog.show(this, true, R.layout.progress_bar, false, DPSTransform.dp2Px(this, 100), DPSTransform.dp2Px(this, 100), new ZddDialog.OnBackPressed() {
                     @Override
                     public void onBackPressed() {
                         ToastUtils.showStatic(mAct, "我是ProgressDialog的onBackPress方法");

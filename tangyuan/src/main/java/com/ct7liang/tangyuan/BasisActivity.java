@@ -65,8 +65,8 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             setStatusBar();
-//            toolbar.setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
-//            findViewById(R.id.title_back_ground).setPadding(0, ScreenInfoUtil.getStatusHeight(this), 0, 0);
+//            toolbar.setPadding(0, ScreenUtil.getStatusHeight(this), 0, 0);
+//            findViewById(R.id.title_back_ground).setPadding(0, ScreenUtil.getStatusHeight(this), 0, 0);
 //            findViewById(R.id.title_back_ground).setBackgroundColor(Color.parseColor("#00000000"));
         }
     }

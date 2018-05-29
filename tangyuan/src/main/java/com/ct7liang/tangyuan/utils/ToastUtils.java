@@ -9,7 +9,7 @@ import android.widget.Toast;
  */
 public class ToastUtils {
 
-    private static boolean isShowTest = true;
+    private static boolean isShowTest = false;
     //静态Toast
     private static Toast mToast;
 

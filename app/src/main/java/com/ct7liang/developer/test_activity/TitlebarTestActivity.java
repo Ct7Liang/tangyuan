@@ -1,6 +1,7 @@
 package com.ct7liang.developer.test_activity;
 
 import android.view.View;
+
 import com.ct7liang.developer.BaseActivity;
 import com.ct7liang.developer.R;
 import com.ct7liang.tangyuan.utils.ToastUtils;
@@ -19,6 +20,7 @@ public class TitlebarTestActivity extends BaseActivity {
     protected void setStatusBar() {
         super.setStatusBar();
         titleBarView = (TitleBarView) findViewById(R.id.title_bar);
+
 //        titleBarView.setLeftImgResource(R.mipmap.ic_launcher_round, 12);
 //        titleBarView.setOnLeftImgClick(new TitleBarView.OnLeftImgClick() {
 //            @Override
@@ -35,12 +37,13 @@ public class TitlebarTestActivity extends BaseActivity {
             }
         });
 //        titleBarView.setRightText("选项", "#FFAA00", 14);
-        titleBarView.setStatusbar(this);
+        titleBarView.setStatusBar(this);
+//        initStatusBar();
     }
 
     @Override
     public void findView() {
-        initStatusBar();
+
     }
 
     @Override
@@ -50,7 +53,7 @@ public class TitlebarTestActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
+        initStatusBar();
     }
 
     @Override
