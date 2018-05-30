@@ -15,13 +15,13 @@ import java.io.InputStreamReader;
  */
 public class FileUtils {
 
-    public static void write(String filePath, String content) {
+    public static void write(String filePath, String content, boolean append) {
         try {
-            FileOutputStream fos = new FileOutputStream(filePath);
+            FileOutputStream fos = new FileOutputStream(filePath, append);
             fos.write(content.getBytes());
             fos.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            LogUtils.write("数据写入失败 异常:" + e.toString());
         }
     }
 
@@ -30,11 +30,11 @@ public class FileUtils {
         int len=0;
         StringBuffer str = new StringBuffer("");
         try {
-            FileInputStream is=new FileInputStream(file);
-            InputStreamReader isr= new InputStreamReader(is);
-            BufferedReader in= new BufferedReader(isr);
-            String line=null;
-            while( (line=in.readLine())!=null ){
+            FileInputStream is = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader in = new BufferedReader(isr);
+            String line;
+            while( (line=in.readLine()) != null ){
                 // 处理换行符的问题
                 if(len != 0){
                     str.append("\r\n"+line);
@@ -46,7 +46,7 @@ public class FileUtils {
             in.close();
             is.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.write("数据读取失败 异常:" + e.toString());
         }
         return str.toString();
     }

@@ -29,7 +29,7 @@ public class FormatCheckUtils {
      * 17+除9的任意数
      * 147
      */
-    public static boolean isChinaPhoneLegal(String phoneNumber) throws PatternSyntaxException {
+    private static boolean isChinaPhoneLegal(String phoneNumber) throws PatternSyntaxException {
         String regExp = "^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\\d{8}$";
         Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(phoneNumber);
@@ -39,7 +39,7 @@ public class FormatCheckUtils {
     /**
      * 香港手机号码8位数，5|6|8|9开头+7位任意数
      */
-    public static boolean isHKPhoneLegal(String phoneNumber)throws PatternSyntaxException {
+    private static boolean isHKPhoneLegal(String phoneNumber)throws PatternSyntaxException {
         String regExp = "^(5|6|8|9)\\d{7}$";
         Pattern p = Pattern.compile(regExp);
         Matcher m = p.matcher(phoneNumber);

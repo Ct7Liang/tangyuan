@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.util.Base64;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -30,7 +31,7 @@ public class Base64Utils {
      * @param file File
      * @return base64字符串
      */
-    public static String FileToBase64(@NonNull File file) {
+    public static String fileToBase64(@NonNull File file) {
         String base64 = null;
         InputStream in = null;
         try {
@@ -40,13 +41,14 @@ public class Base64Utils {
             base64 = Base64.encodeToString(bytes, 0, length, Base64.DEFAULT);
         } catch (IOException e) {
             e.printStackTrace();
+            LogUtils.write("File转换Base64异常: " + e.toString());
         } finally {
             try {
                 if (in != null) {
                     in.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LogUtils.write("File转换Base64异常: " + e.toString());
             }
         }
         return base64;
@@ -58,7 +60,7 @@ public class Base64Utils {
      * @param file 输出文件
      * @return File
      */
-    public static File Base64ToFile(@NonNull String base64, @NonNull File file) {
+    public static File base64ToFile(@NonNull String base64, @NonNull File file) {
         FileOutputStream out = null;
         try {
             // 解码，然后将字节转换为文件
@@ -76,14 +78,14 @@ public class Base64Utils {
                 out.write(buffer, 0, byteread); // 文件写操作
             }
         } catch (IOException ioe) {
-            ioe.printStackTrace();
+            LogUtils.write("Base64转换File异常: " + ioe.toString());
         } finally {
             try {
                 if (out!= null) {
                     out.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LogUtils.write("Base64转换File异常: " + e.toString());
             }
         }
         return file;
@@ -94,7 +96,7 @@ public class Base64Utils {
      * @param bitmap Bitmap
      * @return base64字符串
      */
-    public static String BitmapToBase64(@NonNull Bitmap bitmap) {
+    public static String bitmapToBase64(@NonNull Bitmap bitmap) {
         String result = null;
         ByteArrayOutputStream baos = null;
         try {
@@ -107,7 +109,7 @@ public class Base64Utils {
                 result = Base64.encodeToString(bitmapBytes, Base64.DEFAULT);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LogUtils.write("Bitmap转换Base64异常: " + e.toString());
         } finally {
             try {
                 if (baos != null) {
@@ -115,7 +117,7 @@ public class Base64Utils {
                     baos.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LogUtils.write("Bitmap转换Base64异常: " + e.toString());
             }
         }
         return result;
@@ -126,7 +128,7 @@ public class Base64Utils {
      * @param base64Data base64字符串
      * @return Bitmap
      */
-    public static Bitmap Base64ToBitmap(@NonNull String base64Data) {
+    public static Bitmap base64ToBitmap(@NonNull String base64Data) {
         byte[] bytes = Base64.decode(base64Data, Base64.DEFAULT);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
@@ -135,7 +137,7 @@ public class Base64Utils {
      * 字符串进行Base64编码
      * @param str
      */
-    public static String StringToBase64(@NonNull String str){
+    public static String stringToBase64(@NonNull String str){
         String encodedString = Base64.encodeToString(str.getBytes(), Base64.DEFAULT);
         return encodedString;
     }
@@ -145,7 +147,7 @@ public class Base64Utils {
      * @param encodedString
      * @return
      */
-    public static String Base64ToString(@NonNull String encodedString){
+    public static String base64ToString(@NonNull String encodedString){
         String decodedString =new String(Base64.decode(encodedString,Base64.DEFAULT));
         return decodedString;
     }

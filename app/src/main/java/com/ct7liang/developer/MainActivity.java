@@ -3,9 +3,12 @@ package com.ct7liang.developer;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ct7liang.tangyuan.utils.DPSTransform;
-import com.ct7liang.tangyuan.utils.LogUtils;
+import com.ct7liang.tangyuan.AppFolder;
+import com.ct7liang.tangyuan.utils.FileUtils;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
+import com.ct7liang.tangyuan.utils.ToastUtils;
+
+import java.io.File;
 
 public class MainActivity extends BaseActivity {
 
@@ -48,8 +51,11 @@ public class MainActivity extends BaseActivity {
         //初始化完成
 //        startActivity(new Intent(this, LoadingDialogActivity.class));
 //        startActivity(new Intent(this, TitlebarTestActivity.class));
-        LogUtils.write("wqewrewretretrtretyret");
-        LogUtils.write(DPSTransform.dp2Px(getApplicationContext(), 100)+"");
+
+        FileUtils.write(AppFolder.get().getPath()+"/readme.txt", "每次写入都清除了上次的记录吗?", true);
+
+        String read = FileUtils.read(new File(AppFolder.get(), "readme.txt"));
+        ToastUtils.showStatic(this, read);
     }
 
     @Override
