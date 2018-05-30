@@ -52,6 +52,7 @@ public class GlideHelper {
      * 如果你的请求需要在 activity 生命周期之外去做时，才用下面这样的代码.with(context.getApplicationContext))。
      */
     public void setNormalImageDemo(Context context, File file, int ingResouseId, int errorResouseId, ImageView imageView){
+        LogUtils.write("Glide常用方法");
         with(context)// 指定Context
             .load(file)// 指定图片的URL
             .placeholder(ingResouseId)// 指定图片未成功加载前显示的图片 相当于占位符, 占位大小决定了加载出来的图片所占的大小
