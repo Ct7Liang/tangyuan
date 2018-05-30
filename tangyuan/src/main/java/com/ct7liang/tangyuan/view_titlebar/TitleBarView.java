@@ -1,4 +1,4 @@
-package com.ct7liang.tangyuan.view;
+package com.ct7liang.tangyuan.view_titlebar;
 
 import android.app.Activity;
 import android.content.Context;

@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context="com.ct7liang.developer.test_activity.TitlebarTestActivity">
 
-    <com.ct7liang.tangyuan.view.TitleBarView
+    <com.ct7liang.tangyuan.view_titlebar.TitleBarView
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +22,6 @@
         app:right_text_color="#DD4E40"
         app:right_text_size="14sp"
         app:title_bar_bg="@color/colorPrimary">
-    </com.ct7liang.tangyuan.view.TitleBarView>
+    </com.ct7liang.tangyuan.view_titlebar.TitleBarView>
 
 </LinearLayout>

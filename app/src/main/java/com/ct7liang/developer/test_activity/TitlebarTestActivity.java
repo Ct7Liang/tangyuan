@@ -5,7 +5,7 @@ import android.view.View;
 import com.ct7liang.developer.BaseActivity;
 import com.ct7liang.developer.R;
 import com.ct7liang.tangyuan.utils.ToastUtils;
-import com.ct7liang.tangyuan.view.TitleBarView;
+import com.ct7liang.tangyuan.view_titlebar.TitleBarView;
 
 public class TitlebarTestActivity extends BaseActivity {
 

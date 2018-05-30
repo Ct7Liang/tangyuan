@@ -3,8 +3,8 @@
     package="com.ct7liang.developer">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".BaseApp"
@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".test_activity.LoadingDialogActivity" />
-        <activity android:name=".test_activity.TitlebarTestActivity"></activity>
+        <activity android:name=".test_activity.TitlebarTestActivity" />
+        <activity android:name=".test_activity.Main2Activity"></activity>
     </application>
 
 </manifest>
