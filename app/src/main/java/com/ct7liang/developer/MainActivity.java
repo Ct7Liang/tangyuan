@@ -3,14 +3,11 @@ package com.ct7liang.developer;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ct7liang.tangyuan.AppFolder;
-import com.ct7liang.tangyuan.utils.FileUtils;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
-import com.ct7liang.tangyuan.utils.ToastUtils;
-
-import java.io.File;
 
 public class MainActivity extends BaseActivity {
+
+    String string;
 
     @Override
     public int setLayout() {
@@ -32,6 +29,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void findView() {
+        findViewById(R.id.btn).setOnClickListener(this);
         initStatusBar();
         //查找控件
     }
@@ -51,16 +49,18 @@ public class MainActivity extends BaseActivity {
         //初始化完成
 //        startActivity(new Intent(this, LoadingDialogActivity.class));
 //        startActivity(new Intent(this, TitlebarTestActivity.class));
-
-        FileUtils.write(AppFolder.get().getPath()+"/readme.txt", "每次写入都清除了上次的记录吗?", true);
-
-        String read = FileUtils.read(new File(AppFolder.get(), "readme.txt"));
-        ToastUtils.showStatic(this, read);
+        int length = string.length();
+//        Toast.makeText(getApplicationContext(), "1234567890", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onClick(View v) {
         //点击事件处理
+        switch (v.getId()){
+            case R.id.btn:
+                int length = string.length();
+                break;
+        }
     }
 
     @Override

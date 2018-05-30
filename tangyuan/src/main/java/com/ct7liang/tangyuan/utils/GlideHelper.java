@@ -26,6 +26,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import java.io.File;
 import java.lang.ref.WeakReference;
 
+import static com.bumptech.glide.Glide.with;
+
 /**
  * Created by admin on 2017/4/28.
  *
@@ -50,7 +52,7 @@ public class GlideHelper {
      * 如果你的请求需要在 activity 生命周期之外去做时，才用下面这样的代码.with(context.getApplicationContext))。
      */
     public void setNormalImageDemo(Context context, File file, int ingResouseId, int errorResouseId, ImageView imageView){
-        Glide.with(context)// 指定Context
+        with(context)// 指定Context
             .load(file)// 指定图片的URL
             .placeholder(ingResouseId)// 指定图片未成功加载前显示的图片 相当于占位符, 占位大小决定了加载出来的图片所占的大小
             .error(errorResouseId)// 指定图片加载失败显示的图片
@@ -72,6 +74,7 @@ public class GlideHelper {
      * 设置圆形图片
      */
     public void setCircleImageDemo(Context context, File file, int ingResouseId, int errorResouseId, ImageView imageView){
+        LogUtils.write("设置圆形图片");
         Glide
                 .with(context) // 指定Context
                 .load(file)// 指定图片的URL
@@ -137,8 +140,8 @@ public class GlideHelper {
      * 设置圆角图片
      */
     public void setCircleRoundImageDemo(Context context, File file, int ingResouseId, int errorResouseId, int dp, ImageView imageView){
-        Glide
-            .with(context) // 指定Context
+        LogUtils.write("设置圆角图片");
+        with(context) // 指定Context
             .load(file)// 指定图片的URL
             .placeholder(ingResouseId)// 指定图片未成功加载前显示的图片 相当于占位符, 占位大小决定了加载出来的图片所占的大小
             .error(errorResouseId)// 指定图片加载失败显示的图片
@@ -206,8 +209,8 @@ public class GlideHelper {
      * @param imageView ImageView
      */
     public void setGifImageDemo(Activity activity, File file, ImageView imageView){
-        Glide
-            .with(activity) // 指定Context
+        LogUtils.write("设置本地gif图片");
+        with(activity) // 指定Context
             .load(file)// 指定图片的URL
             .asGif()
             .diskCacheStrategy(DiskCacheStrategy.SOURCE)//仅仅只缓存原来的全分辨率的图像
@@ -219,8 +222,8 @@ public class GlideHelper {
      * 设置图片到其它控件中
      */
     public void setImageToOtherViewDemo(Context context, File file, View view, int width, int height){
-        Glide
-            .with(context)
+        LogUtils.write("设置图片到其它控件中");
+        with(context)
             .load(file)
             .asBitmap()
             .centerCrop() //指定图片缩放类型为centerCrop, 裁剪为指定大小, 可能图片显示不完整
@@ -263,9 +266,11 @@ public class GlideHelper {
      * 这是这两个方法所强制要求的.
      */
     public void clearCache(Context ctx){
+        LogUtils.write("清理缓存");
         Glide.get(ctx).clearMemory();
         new ClearCacheThread(ctx).start();
     }
+
     /**
      * 清理Glide缓存的子线程
      */

@@ -1,6 +1,10 @@
 ##### 准备工作
 ```
-创建App类 初始化 SpUtils, LogUtils, AppFolder
+AndroidManifest.中添加以下权限:
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+创建Application类 初始化 SpUtils, LogUtils, AppFolder
 创建抽象BaseActivity类继承BasisActivity.class, 开发中的Activity继承BaseActivity后重写方法即可
 如需使状态栏透明, 则需要在initView()方法中调用initStatusBar(), 然后重写setStatusBar()方法,适配透明状态栏
 ```

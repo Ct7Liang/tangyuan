@@ -9,7 +9,9 @@ import android.os.Environment;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.widget.Toast;
+
 import com.ct7liang.tangyuan.utils.LogUtils;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -27,42 +29,37 @@ import java.util.Map;
  * UncaughtException处理类,当程序发生Uncaught异常的时候,有该类来接管程序,并记录发送错误报告.
  * @author user
  */
-public class CrashHandler implements UncaughtExceptionHandler {
+public class MyCrashHandler implements UncaughtExceptionHandler {
 
-    //系统默认的UncaughtException处理类   
+    //系统默认的UncaughtException处理类
     private UncaughtExceptionHandler mDefaultHandler;
 
-    //程序的Context对象  
+    //程序的Context对象
     private Context mContext;
 
-    //用来存储设备信息和异常信息  
+    //用来存储设备信息和异常信息
     private Map<String, String> infos = new HashMap<>();
-  
-    //用于格式化日期,作为日志文件名的一部分  
-    private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");  
 
-    //存储崩溃日志文件夹
+    //用于格式化日期,作为日志文件名的一部分
+    private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
+
     private File fileFolder;
-
-    //是否弹出Toast标记
     private boolean isShowToast = true;
-
-    //Toast内容
-    private String content = "程序出现异常, 即将退出";
+    private String content = "";
 
     //CrashHandler实例
-    private static CrashHandler INSTANCE = new CrashHandler();
+    private static MyCrashHandler INSTANCE = new MyCrashHandler();
     /** 保证只有一个CrashHandler实例 */
-    private CrashHandler() {}
+    private MyCrashHandler() {}
     /** 获取CrashHandler实例 ,单例模式 */  
-    public static CrashHandler getInstance() {  
+    public static MyCrashHandler getInstance() {
         return INSTANCE;  
     }
 
     /** 
      * 初始化
      */  
-    public void init(Context context, @NonNull File folder, boolean isShowToast, String content) {
+    public void init(Context context, @NonNull File folder, boolean isShowToast, @NonNull String content) {
         mContext = context;
         if (folder==null){
             throw new NullPointerException("CrashHandler初始化文件夹不能为空");
@@ -70,10 +67,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
             fileFolder = folder;
         }
         this.isShowToast = isShowToast;
-        if (content != null){
-            this.content = content;
-        }
-        //获取系统默认的UncaughtException处理器
+        this.content = content;
+        //获取系统默认的UncaughtException处理器  
         mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();  
         //设置该CrashHandler为程序的默认处理器  
         Thread.setDefaultUncaughtExceptionHandler(this);  
@@ -83,36 +78,31 @@ public class CrashHandler implements UncaughtExceptionHandler {
      * 当UncaughtException发生时会转入该函数来处理 
      */  
     @Override  
-    public void uncaughtException(final Thread thread, final Throwable ex) {
-        boolean b = !handleException(ex);
-        if (b && mDefaultHandler != null) {
+    public void uncaughtException(Thread thread, Throwable ex) {
+        if (!handleException(ex) && mDefaultHandler != null) {
             //如果用户没有处理则让系统默认的异常处理器来处理
             mDefaultHandler.uncaughtException(thread, ex);
-            LogUtils.write("uncaughtException");
         } else {
             try {
                 Thread.sleep(3000);
-                LogUtils.write("sleep");
             } catch (InterruptedException e) {
                 LogUtils.write("错误信息: " + e.toString());
             }
             //退出程序
-//            android.os.Process.killProcess(Process.myPid());
-//            System.exit(0);
-            mDefaultHandler.uncaughtException(thread, ex);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
         }
     }
-
-    /**
+  
+    /** 
      * 自定义错误处理,收集错误信息 发送错误报告等操作均在此完成.
      * @param ex Throwable
-     * @return true:如果处理了该异常信息;否则返回false.
-     */
-    private boolean handleException(Throwable ex) {
-        LogUtils.write("handleException");
+     * @return true:如果处理了该异常信息;否则返回false. 
+     */  
+    private boolean handleException(Throwable ex) {  
         if (ex == null)  {
-            return false;
-        }
+            return false;  
+        }  
         //使用Toast来显示异常信息
         new Thread() {
             @Override
@@ -120,22 +110,22 @@ public class CrashHandler implements UncaughtExceptionHandler {
                 Looper.prepare();
                 if (isShowToast){
                     Toast.makeText(mContext, content, Toast.LENGTH_LONG).show();
-                    LogUtils.write("Toast");
                 }
                 Looper.loop();
             }
         }.start();
-        //收集设备参数信息
-        collectDeviceInfo(mContext);
-        //保存日志文件
-        saveCrashInfo2File(ex);
-        return true;
-    }
+        //收集设备参数信息   
+        collectDeviceInfo(mContext);  
+        //保存日志文件   
+        saveCrashInfo2File(ex);  
+        return true;  
+    }  
 
     /** 
-     * 收集设备参数信息
+     * 收集设备参数信息 
+     * @param ctx 
      */  
-    private void collectDeviceInfo(Context ctx) {
+    public void collectDeviceInfo(Context ctx) {  
         try {  
             PackageManager pm = ctx.getPackageManager();  
             PackageInfo pi = pm.getPackageInfo(ctx.getPackageName(), PackageManager.GET_ACTIVITIES);  
@@ -152,7 +142,8 @@ public class CrashHandler implements UncaughtExceptionHandler {
         for (Field field : fields) {  
             try {  
                 field.setAccessible(true);  
-                infos.put(field.getName(), field.get(null).toString());;
+                infos.put(field.getName(), field.get(null).toString());
+//                LogUtils.write(field.getName() + " : " + field.get(null));
             } catch (Exception e) {
                 LogUtils.write("收集错误日志时出错: " + e.toString());
             }
@@ -161,6 +152,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
   
     /** 
      * 保存错误信息到文件中
+     * @param ex 
      * @return  返回文件名称,便于将文件传送到服务器 
      */  
     private String saveCrashInfo2File(Throwable ex) {
@@ -185,9 +177,13 @@ public class CrashHandler implements UncaughtExceptionHandler {
         String result = writer.toString();
         sb.append(result);
         try {
-            String time = formatter.format(new Date());
+//            long timestamp = System.currentTimeMillis();
+            String time = formatter.format(new Date());  
+//            String fileName = "crash-" + time + "-" + timestamp + ".log";
             String fileName = "crash - " + time + ".log";
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+//                String path = "/sdcard/crash/";
+//                File dir = new File(path);
                 if (!fileFolder.exists()) {
                     fileFolder.mkdirs();
                 }  
