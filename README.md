@@ -16,4 +16,4 @@ dependencies {
 }
 ```
 
-[ Detail ](.Detail.md) has no title attribute.
+[details](https://github.com/Ct7Liang/tangyuan/blob/master/DETAIL.md)
