@@ -1,4 +1,4 @@
-###SpUtils(SharedPreferences工具)
+##### SpUtils(SharedPreferences工具)
 ```
 SpUtils.init(Context context);
 SpUtils.init(Context context, String spName);
