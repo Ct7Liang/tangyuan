@@ -1,8 +1,11 @@
 package com.ct7liang.developer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ct7liang.developer.test_activity.Main2Activity;
+import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.ScreenUtil;
 
 public class MainActivity extends BaseActivity {
@@ -49,8 +52,6 @@ public class MainActivity extends BaseActivity {
         //初始化完成
 //        startActivity(new Intent(this, LoadingDialogActivity.class));
 //        startActivity(new Intent(this, TitlebarTestActivity.class));
-        int length = string.length();
-//        Toast.makeText(getApplicationContext(), "1234567890", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -58,7 +59,8 @@ public class MainActivity extends BaseActivity {
         //点击事件处理
         switch (v.getId()){
             case R.id.btn:
-                int length = string.length();
+                startActivity(new Intent(this, Main2Activity.class));
+                finish();
                 break;
         }
     }
@@ -69,4 +71,9 @@ public class MainActivity extends BaseActivity {
         //退出应用提示 销毁所有的Activity
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtils.write("MainActivity.destroy()");
+    }
 }
