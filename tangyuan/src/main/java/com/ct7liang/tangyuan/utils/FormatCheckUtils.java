@@ -1,7 +1,6 @@
 package com.ct7liang.tangyuan.utils;
 
 import android.text.TextUtils;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -10,7 +9,6 @@ import java.util.regex.PatternSyntaxException;
  * Created by Administrator on 2018-04-11.
  *  格式校验工具类  (手机号码, 邮箱)
  */
-
 public class FormatCheckUtils {
 
     /**
@@ -45,7 +43,6 @@ public class FormatCheckUtils {
         Matcher m = p.matcher(phoneNumber);
         return m.matches();
     }
-
 
     /**
      * 邮箱格式是否正确
