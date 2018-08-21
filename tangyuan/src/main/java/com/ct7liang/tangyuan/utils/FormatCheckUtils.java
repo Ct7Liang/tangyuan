@@ -58,5 +58,16 @@ public class FormatCheckUtils {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    
+
+    /**
+     * 验证邮箱地址是否合法
+     */
+    public static boolean checkEmail(String email) {
+        if (TextUtils.isEmpty(email))
+            return false;
+        String check = "^[a-zA-Z][\\w\\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]$";
+        Pattern regex = Pattern.compile(check);
+        Matcher matcher = regex.matcher(email);
+        return matcher.matches();
+    }
 }

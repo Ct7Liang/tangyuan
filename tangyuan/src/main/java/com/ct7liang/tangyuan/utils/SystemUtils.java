@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 /**
  * Created by Administrator on 2018-04-11.
@@ -27,6 +29,23 @@ public class SystemUtils {
     public static final String PHONE_MODEL = Build.MODEL;
     public static final String PHONE_PRODUCT = Build.PRODUCT;
     public static final int PHONE_RELEASE = Build.VERSION.SDK_INT;
+
+    /**
+     * 隐藏输入键盘
+     */
+    public static void hideSoftInput(EditText view, Context context) {
+        InputMethodManager inputMeMana = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMeMana.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+    /**
+     * 显示软键盘
+     */
+    public static void showSoftInput(Context context) {
+        InputMethodManager inputMeMana = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMeMana.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
 
 
 //    /**
