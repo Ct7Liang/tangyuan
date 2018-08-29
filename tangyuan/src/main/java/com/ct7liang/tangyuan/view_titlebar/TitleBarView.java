@@ -80,7 +80,7 @@ public class TitleBarView extends LinearLayout {
         tv_center.setText(title==null?"":title);
         tv_center.setTextColor(title_color);
         tv_center.setTextSize(TypedValue.COMPLEX_UNIT_PX, title_size);
-        tv_center.setGravity(gravity==0?Gravity.CENTER:Gravity.START);  // TODO: 2018-05-22  flag
+        tv_center.setGravity(gravity==0?Gravity.CENTER:Gravity.START|Gravity.CENTER);  // TODO: 2018-05-22  flag
 
         tv_right = (TextView) findViewById(R.id.right_text);
         tv_right.setText(right_text==null?"":right_text);
