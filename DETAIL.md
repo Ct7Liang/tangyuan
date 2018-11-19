@@ -128,7 +128,7 @@ setStatusBar(Context context)
 ##### 沉浸式状态栏
 **initStatusBar();**
 ```
-1. 在findView()方法中加入方法**initStatusBar();**此时状态栏透明,且布局上移状态栏的高度;
+1. 在initSurface()中加入方法**initStatusBar();**此时状态栏透明,且布局上移状态栏的高度;
 2. 重写**setStatusBar();**
     a.在此方法中调整头部布局,腾出状态栏位置
     b.使用TitleBarView留出状态栏位置
