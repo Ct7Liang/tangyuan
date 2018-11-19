@@ -125,10 +125,11 @@ setTitleBarBgColor(int resid)
 setStatusBar(Context context)
 ```
 
-##### 透明状态栏
+##### 沉浸式状态栏
+**initStatusBar();**
 ```
-1. 在findView()方法中加入方法 initStatusBar() 此时状态栏透明,且布局上移状态栏的高度;
-2. 重写 setStatusBar()
+1. 在findView()方法中加入方法**initStatusBar();**此时状态栏透明,且布局上移状态栏的高度;
+2. 重写**setStatusBar();**
     a.在此方法中调整头部布局,腾出状态栏位置
     b.使用TitleBarView留出状态栏位置
         TitleBarView titleBarView = findViewById(R.id.title_bar_view);

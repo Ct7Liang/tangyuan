@@ -18,11 +18,12 @@ import com.ct7liang.tangyuan.utils.ToastUtils;
 /**
  * Created by Administrator on 2017/6/28.
  *  setLayout(); 设置布局
+ *  initSurface(); 设置界面
  *  setStatusBar(); 设置状态栏
- *  findView(); 查找控件
- *  initData(); 初始化数据
- *  initView(); 初始化View
- *  initFinish(); 初始化完成
+ *  //findView(); 查找控件
+ *  //initData(); 初始化数据
+ *  //initView(); 初始化View
+ *  //initFinish(); 初始化完成
  */
 public abstract class BasisActivity extends FragmentActivity implements View.OnClickListener {
 
@@ -41,13 +42,15 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
 
         setContentView(setLayout());
 
-        findView();
+        initSurface();
 
-        initData();
-
-        initView();
-
-        initFinish();
+//        findView();
+//
+//        initData();
+//
+//        initView();
+//
+//        initFinish();
 
         // Activity初始化完成,注册广播, 以便于在广播中对Activity进行销毁, 注意要在onDestroy()中解除注册
         exitReceiver = new AppExitReceiver();
@@ -94,24 +97,29 @@ public abstract class BasisActivity extends FragmentActivity implements View.OnC
     protected void setStatusBar(){}
 
     /**
-     * 查找控件
+     * 设置界面
      */
-    public abstract void findView();
+    public abstract void initSurface();
 
-    /**
-     * 数据初始化中
-     */
-    public abstract void initData();
+//    /**
+//     * 查找控件
+//     */
+//    public abstract void findView();
 
-    /**
-     * 设置控件(各种监听事件)
-     */
-    public abstract void initView();
+//    /**
+//     * 数据初始化中
+//     */
+//    public abstract void initData();
 
-    /**
-     * 数据初始化完成
-     */
-    public abstract void initFinish();
+//    /**
+//     * 设置控件(各种监听事件)
+//     */
+//    public abstract void initView();
+
+//    /**
+//     * 数据初始化完成
+//     */
+//    public abstract void initFinish();
 
     public long currentTime;
     public long lastTime;
