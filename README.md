@@ -12,13 +12,13 @@ allprojects {
 ***app* *build.gradle***
 ```
 dependencies {
-    compile 'com.github.Ct7Liang:tangyuan:2.0.0'
+    compile 'com.github.Ct7Liang:tangyuan:2.0.1'
 }
 ```
 ##### 建议修改
 ```
-compileSdkVersion 28
-compile 'com.android.support:appcompat-v7:28.0.0'
+compileSdkVersion 27
+compile 'com.android.support:appcompat-v7:27.1.1'
 ```
 
 
