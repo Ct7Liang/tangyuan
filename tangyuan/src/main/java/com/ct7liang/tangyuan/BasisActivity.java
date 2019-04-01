@@ -11,7 +11,6 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-
 import com.ct7liang.tangyuan.receiver.AppExitReceiver;
 import com.ct7liang.tangyuan.utils.ToastUtils;
 
