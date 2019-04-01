@@ -20,7 +20,7 @@ public class LoadingDialogActivity extends BaseActivity {
     }
 
     @Override
-    public void findView() {
+    public void initSurface() {
         initStatusBar();
         findViewById(R.id.btn).setOnClickListener(this);
         findViewById(R.id.btn2).setOnClickListener(this);
@@ -29,20 +29,7 @@ public class LoadingDialogActivity extends BaseActivity {
         findViewById(R.id.close).setOnClickListener(this);
     }
 
-    @Override
-    public void initData() {
 
-    }
-
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initFinish() {
-
-    }
 
     @Override
     public void onClick(View v) {

@@ -13,28 +13,13 @@ public class Main2Activity extends BaseActivity {
     }
 
     @Override
-    public void findView() {
+    public void initSurface() {
         findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 android.os.Process.killProcess(android.os.Process.myPid());
             }
         });
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
-    @Override
-    public void initView() {
-
-    }
-
-    @Override
-    public void initFinish() {
-
     }
 
     @Override

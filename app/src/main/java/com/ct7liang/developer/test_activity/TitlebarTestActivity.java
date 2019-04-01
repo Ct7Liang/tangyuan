@@ -42,22 +42,7 @@ public class TitlebarTestActivity extends BaseActivity {
     }
 
     @Override
-    public void findView() {
-
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
-    @Override
-    public void initView() {
-        initStatusBar();
-    }
-
-    @Override
-    public void initFinish() {
+    public void initSurface() {
 
     }
 

@@ -31,27 +31,9 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    public void findView() {
+    public void initSurface() {
         findViewById(R.id.btn).setOnClickListener(this);
         initStatusBar();
-        //查找控件
-    }
-
-    @Override
-    public void initData() {
-        //初始化数据
-    }
-
-    @Override
-    public void initView() {
-        //初始化设置控件
-    }
-
-    @Override
-    public void initFinish() {
-        //初始化完成
-//        startActivity(new Intent(this, LoadingDialogActivity.class));
-//        startActivity(new Intent(this, TitlebarTestActivity.class));
     }
 
     @Override
