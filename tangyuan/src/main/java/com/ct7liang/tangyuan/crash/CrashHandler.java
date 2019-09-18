@@ -1,4 +1,4 @@
-package com.ct7liang.tangyuan.utils.crash;
+package com.ct7liang.tangyuan.crash;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

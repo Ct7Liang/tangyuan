@@ -1,4 +1,4 @@
-package com.ct7liang.tangyuan.utils.window;
+package com.ct7liang.tangyuan.window;
 
 import android.app.Activity;
 import android.app.Dialog;

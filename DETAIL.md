@@ -136,4 +136,13 @@ setStatusBar(Context context)
         titleBarView.setStatusBar(this);
 ```
 
+##### 弹窗帮助类
+**1. WindowHelper.create()**
+**2. PopupWindowHelper.create()**
+```
+WindowHelper.create();
+PopupWindowHelper.create();
+```
+
+
 [返回](https://github.com/Ct7Liang/tangyuan)

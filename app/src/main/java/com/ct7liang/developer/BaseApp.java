@@ -5,7 +5,7 @@ import android.app.Application;
 import com.ct7liang.tangyuan.AppFolder;
 import com.ct7liang.tangyuan.utils.LogUtils;
 import com.ct7liang.tangyuan.utils.SpUtils;
-import com.ct7liang.tangyuan.utils.crash.CrashUtils;
+import com.ct7liang.tangyuan.crash.CrashUtils;
 
 /**
  * Created by Administrator on 2018-02-02.

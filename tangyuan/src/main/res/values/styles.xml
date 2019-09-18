@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- 对话框样式 -->
     <style name="dialog_bottom_full" parent="android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -8,22 +9,23 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:scrollHorizontally">true</item>
     </style>
+
     <!--弹出框动画-->
     <style name="share_animation" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_enter</item>
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 
-
-    <!--自定义等待加载框dialog灰色背景样式-->
-    <style name="dialog_gray_back_ground" parent="Theme.AppCompat.Dialog">
+    <!--弹窗样式-->
+    <style name="dialog_bg" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
-    <!--自定义等待加载框dialog正常背景样式-->
-    <style name="dialog_not_gray_back_ground" parent="Theme.AppCompat.Dialog">
-        <item name="android:backgroundDimEnabled">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:scrollHorizontally">true</item>
     </style>
 
 </resources>
