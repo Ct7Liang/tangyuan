@@ -137,8 +137,8 @@ setStatusBar(Context context)
 ```
 
 ##### 弹窗帮助类
-**1. WindowHelper.create()**
-**2. PopupWindowHelper.create()**
+**1. WindowHelper**
+**2. PopupWindowHelper**
 ```
 WindowHelper.create();
 PopupWindowHelper.create();
